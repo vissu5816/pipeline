@@ -40,9 +40,9 @@ pipeline {
 
           }
         }
-        stage('') {
+        stage('unit-test') {
           steps {
-            bat 'if exist'
+            bat 'if exist source\\TestResults\\ del src\\TestResults\\*.* /F /Q \\n if exist TestResults\\ del TestResults\\*.* /F /Q'
           }
         }
       }

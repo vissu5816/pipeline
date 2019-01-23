@@ -50,6 +50,11 @@ pipeline {
             vsTest(testFiles: 'bin\\WebCon', enablecodecoverage: true)
           }
         }
+        stage('power') {
+          steps {
+            powershell '$config'
+          }
+        }
       }
     }
     stage('Deploy-Prepare') {

@@ -25,13 +25,13 @@ pipeline{
             steps {
                 dir('DeviceFileUpload'){
                     script {
-                        
+                        echo "hi"
                     }
                     
                 }
 
                 script {
-                    
+                    echo "hi"
                 }
             }
         }

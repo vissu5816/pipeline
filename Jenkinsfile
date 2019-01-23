@@ -25,13 +25,13 @@ pipeline{
             steps {
                 dir('DeviceFileUpload'){
                     script {
-                        env.POM_VERSION  = readMavenPom().getVersion()                    
+                        
                     }
-                    sh 'mvn -B clean test cobertura:cobertura'   
+                    
                 }
 
                 script {
-                    echo "Build ${env.POM_VERSION} was successful"
+                    
                 }
             }
         }
@@ -40,10 +40,9 @@ pipeline{
             steps{
                     dir ('DeviceFileUpload'){
                         script{
-                            env.GIT_VERSION = env.POM_VERSION.replace("v", "").replace("-SNAPSHOT", "")
                             echo "Releasing version ${env.GIT_VERSION}"                    
                         }
-                        sh 'mvn -B clean deploy -DskipITs release:prepare release:perform -Darguments="-DskipITs"'
+                        
                     }
 
                     script {

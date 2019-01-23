@@ -45,6 +45,11 @@ pipeline {
             bat 'if exist source\\TestResults\\ del src\\TestResults\\*.* /F /Q \\n if exist TestResults\\ del TestResults\\*.* /F /Q'
           }
         }
+        stage('VSTest') {
+          steps {
+            vsTest(testFiles: 'bin\\WebCon', enablecodecoverage: true)
+          }
+        }
       }
     }
     stage('Deploy-Prepare') {
